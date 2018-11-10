@@ -5,10 +5,10 @@ import GetNewData from './GetNewData.js';
 import Card from './Card.js';
 import CardGenerator from './Card.js';
 class App extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-    data: [
+    data:[
       {
       name: "F84 Thunderjet",
       make: "Republic  Aviation",
@@ -61,7 +61,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CardGenerator fighterData={this.data}/>
+        <CardGenerator fighterData={this.state.data}/>
         <GetNewData />
       </div>
     );

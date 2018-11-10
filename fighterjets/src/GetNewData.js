@@ -1,6 +1,6 @@
 import React from 'react';
 import { InputGroup, InputGroupText, InputGroupAddon, Input, Button} from 'reactstrap';
-import FighterInput from './FighterInput.js'
+import FighterInput from './FighterInput.js';
 class GetNewData extends React.Component {
     constructor(){
         super()
