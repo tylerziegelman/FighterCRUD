@@ -12,7 +12,9 @@ class FighterInput extends React.Component{
     
     updateInputValue(e) {
         this.setState({inputValue: e.target.value,
+                    
         })
+        this.props.changeHandler()
     }
     render(){
         return(

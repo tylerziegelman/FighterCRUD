@@ -58,11 +58,16 @@ class App extends Component {
   ]
   }
   }
+  create(obj){
+    this.setState({
+      data: this.state.data.concat([obj])
+    })
+  }
   render() {
     return (
       <div className="App">
         <CardGenerator fighterData={this.state.data}/>
-        <GetNewData />
+        <GetNewData create={this.create}/>
       </div>
     );
   }
