@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import GetNewData from './GetNewData.js';
 import Card from './Card.js';
 import CardGenerator from './Card.js';
 class App extends Component {
   constructor(){
     super()
-    this.data= [
+    this.state = {
+    data: [
       {
       name: "F84 Thunderjet",
       make: "Republic  Aviation",
@@ -56,10 +57,12 @@ class App extends Component {
       }
   ]
   }
+  }
   render() {
     return (
       <div className="App">
         <CardGenerator fighterData={this.data}/>
+        <GetNewData />
       </div>
     );
   }
