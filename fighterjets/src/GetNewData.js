@@ -5,46 +5,56 @@ class GetNewData extends React.Component {
     constructor(){
         super()
         this.state={
-            nameValue: "",
-            makeValue: "",
-            topSpeedValue: "",
-            weaponsValue: "",
+            name: "",
+            make: "",
+            topSpeed: "",
+            weapons: "",
         }
+        this.createHandler = this.createHandler.bind(this);
     }
     updateInputValue(obj) {
         
         this.setState(obj)
     }
+    createHandler(){
+        this.props.create(this.state)
+        this.setState({
+            name: "",
+            make: "",
+            topSpeed: "",
+            weapons: "",
+        })
+    }
+    
     render() {
-        console.log(this.state)
         return (
             <div>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText className="fighterName">Fighter Jet Name: </InputGroupText>
                     </InputGroupAddon>
-                    <Input value={this.state.nameValue} onChange={(e)=>{this.updateInputValue({nameValue: e.target.value})}}/>
+                    <Input value={this.state.name} onChange={(e)=>{this.updateInputValue({name: e.target.value})}}/>
                 </InputGroup>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>Fighter Jet Make: </InputGroupText>
                     </InputGroupAddon>
-                    <Input value={this.state.makeValue} onChange={(e)=>{this.updateInputValue({makeValue: e.target.value})}}/>
+                    <Input value={this.state.make} onChange={(e)=>{this.updateInputValue({make: e.target.value})}}/>
                 </InputGroup>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>Top Speed: </InputGroupText>
                     </InputGroupAddon>
-                    <Input value={this.state.topSpeedValue} onChange={(e)=>{this.updateInputValue({topSpeedValue: e.target.value})}}/>
+                    <Input value={this.state.topSpeed} onChange={(e)=>{this.updateInputValue({topSpeed: e.target.value})}}/>
                 </InputGroup>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">
                         <InputGroupText>Primary Weapon: </InputGroupText>
                     </InputGroupAddon>
-                    <Input value={this.state.weaponsValue} onChange={(e)=>{this.updateInputValue({weaponsValue: e.target.value})}}/>
+                    <Input value={this.state.weapons} onChange={(e)=>{this.updateInputValue({weapons: e.target.value})}}/>
                 </InputGroup>
                 <InputGroup>
-                <InputGroupAddon addonType="prepend"><Button>Submit Fighter Jet</Button></InputGroupAddon>
+                <InputGroupAddon addonType="prepend"><Button onClick={this.createHandler}>Submit Fighter Jet</Button></InputGroupAddon>
                 </InputGroup>
 
             </div>
@@ -52,4 +62,4 @@ class GetNewData extends React.Component {
     }
 }
 
-export default GetNewData 
+export default GetNewData
