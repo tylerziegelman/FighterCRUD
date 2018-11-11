@@ -19,7 +19,7 @@ const CardGenerator = (props)=> {
                 {/*delete={this.delete}*/}
                 <Button delete={props.delete} onClick={(e)=>{props.delete(element.name)}}>Delete</Button>
                 {/* <Input value={this.state.name} onChange={(e)=>{this.updateInputValue({name: e.target.value})}}/> */}
-                <Button >Update</Button>
+               
                 <ModalEditor element={element} update={props.update}/>
               </CardBody>
             </Card>

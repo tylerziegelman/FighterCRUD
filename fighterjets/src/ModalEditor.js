@@ -7,10 +7,15 @@ class ModalEditor extends React.Component {
         super(props);
         this.state = {
           modal: false,
-          
+          name:props.element.name,
+          make: props.element.make,
+          topSpeed: props.element.topSpeed,
+          weapons: props.element.weapons,
+          id: props.element.id,
         };
     
         this.toggle = this.toggle.bind(this);
+        this.updateHandler = this.updateHandler.bind(this);
       }
     
       toggle() {
@@ -18,7 +23,20 @@ class ModalEditor extends React.Component {
           modal: !this.state.modal
         });
       }
-    
+
+      updateHandler(){
+        this.props.update(this.state)
+        this.setState({
+            name: "",
+            make: "",
+            topSpeed: "",
+            weapons: "",
+        })
+    }
+    updateInputValue(obj) {
+        
+        this.setState(obj)
+    }
       render() {
         return (
           <div>
@@ -29,23 +47,23 @@ class ModalEditor extends React.Component {
               <ModalBody>
               <InputGroup>
               <ListGroupItem> <InputGroupAddon addonType="prepend">Name</InputGroupAddon>
-                <Input placeholder="name" /></ListGroupItem>
+                <Input placeholder="name" value={this.state.name}onChange={(e)=>{this.updateInputValue({name: e.target.value})}} /></ListGroupItem>
                     
                 <ListGroupItem><InputGroupAddon addonType="prepend">Make</InputGroupAddon>
-                        <Input placeholder="make" /></ListGroupItem>
-                    
+                        <Input placeholder="make" value={this.state.make}onChange={(e)=>{this.updateInputValue({make: e.target.value})}}/></ListGroupItem>
+                        {/* <Input value={this.state.make} onChange={(e)=>{this.updateInputValue({make: e.target.value})}}/> */}
                         <ListGroupItem><InputGroupAddon addonType="prepend">Top Speed</InputGroupAddon>
-                        <Input placeholder="top speed" /></ListGroupItem>
+                        <Input placeholder="top speed" value={this.state.topSpeed} onChange={(e)=>{this.updateInputValue({topSpeed: e.target.value})}}/></ListGroupItem>
                    
                         <ListGroupItem><InputGroupAddon addonType="prepend">Primary Weapon</InputGroupAddon>
-                         <Input placeholder="username" /></ListGroupItem>
+                         <Input placeholder="weapons" value={this.state.weapons} onChange={(e)=>{this.updateInputValue({weapons: e.target.value})}}/></ListGroupItem>
                     </InputGroup>
               </ModalBody>
               </ListGroup>
               <ModalFooter>
-                <Button  color="primary" onClick={this.toggle} onClick={(e)=>{this.props.update(this.props.name)}}>Update</Button>{' '}
+                <Button  color="primary" onClick={this.toggle} onClick={(e)=>{this.props.update(this.props.name)}} onClick={this.updateHandler}>Update</Button>{' '}
                 {/* onClick={(e)=>{props.delete(element.name)}}>Delete</Button> */}
-                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                <Button color="secondary" onClick={this.toggle} >Cancel</Button>
               </ModalFooter>
             </Modal>
           </div>
