@@ -4,7 +4,6 @@ CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 
 const CardGenerator = (props)=> {
-    console.log(props);
     
     
         return(
@@ -16,7 +15,10 @@ const CardGenerator = (props)=> {
                 <CardTitle>{element.name}</CardTitle>
                 <CardSubtitle>{element.make}</CardSubtitle>
                 <CardText>Top Speed: {element.topSpeed}</CardText>
-                <CardText>{element.weapons}</CardText>
+                <CardText>Primary Weapon: {element.weapons}</CardText>
+                {/*delete={this.delete}*/}
+                <Button>Delete</Button>
+                <Button >Update</Button>
               </CardBody>
             </Card>
             })} 
