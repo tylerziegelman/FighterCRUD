@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody,
 CardTitle, CardSubtitle, Button } from 'reactstrap';  
 import ModalEditor from './ModalEditor';
 
+
 const CardGenerator = (props)=> {
    
         return(
